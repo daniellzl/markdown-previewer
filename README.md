@@ -1,6 +1,7 @@
 # Markdown Previewer
 
 Type in markdown into a text field and preview the output immediately.
+
 [Live Application](http://markdown-previewer-dlzl.surge.sh)
 
 ### Project Goals
@@ -28,7 +29,7 @@ MarkdownInput -> Application -> MarkdownOutput
 
 ### Lessons Learned
 
-[Using Marked with React](https://stackoverflow.com/questions/34686523/using-marked-in-react)
+* [Using Marked with React](https://stackoverflow.com/questions/34686523/using-marked-in-react)
 
 ### Technologies
 
