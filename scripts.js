@@ -1,44 +1,72 @@
-class App extends React.Component {
-	// main application
+const MarkdownInput = (props) => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            markdown: ""
-        }
-    }
+  const initialText = "Heading\n=======\n\nSub-heading\n-----------\n \n### Another deeper heading\n \nParagraphs are separated\nby a blank line.\n\nLeave 2 spaces at the end of a line to do a  \nline break\n\nText attributes *italic*, **bold**, \n`monospace`, ~~strikethrough~~ .\n\nShopping list:\n\n  * apples\n  * oranges\n  * pears\n\nNumbered list:\n\n  1. apples\n  2. oranges\n  3. pears\n\nThe rain---not the reign---in\nSpain.\n";
 
-    componentDidMount() {
-		// once component mounts initialize state variables
-
-        this.setState({markdown: "Heading\n=======\n\nSub-heading\n-----------\n \n### Another deeper heading\n \nParagraphs are separated\nby a blank line.\n\nLeave 2 spaces at the end of a line to do a  \nline break\n\nText attributes *italic*, **bold**, \n`monospace`, ~~strikethrough~~ .\n\nShopping list:\n\n  * apples\n  * oranges\n  * pears\n\nNumbered list:\n\n  1. apples\n  2. oranges\n  3. pears\n\nThe rain---not the reign---in\nSpain.\n\n *[Herman Fassett](https://freecodecamp.com/hermanfassett)*"});
-    }
-
-    getMarkdownText() {
-		// turn user entered text into markdown text
-		// https://stackoverflow.com/questions/34686523/using-marked-in-react
-
-        const rawMarkup = marked(this.state.markdown, {sanitize: true});
-        return {__html: rawMarkup};
-    }
-
-    render() {
-        return (
-            <div>
-                <textarea
-					rows="35"
-					value={this.state.markdown}
-					onChange={event => this.setState({markdown: event.target.value})}
-				>
-				</textarea>
-                <div
-					className="output"
-					dangerouslySetInnerHTML={this.getMarkdownText()}
-				>
-				</div>
-            </div>
-        );
-    }
+  return (
+    <div>
+      <textarea
+        rows="35"
+        value={initialText}
+        onChange={event => props.onInputChange(event.target.value)}>
+      </textarea>
+    </div>
+  )
 }
 
-ReactDOM.render( <App/>, document.querySelector("#App"));
+{/* <div className="output" dangerouslySetInnerHTML={this.getMarkdownText()}
+></div>
+
+// <textarea rows="35" value={props.markdown}
+//   onChange={event => this.setState({markdown: event.target.value})}
+// ></textarea> */}
+
+// const MarkdownOutput = (props) => {
+//
+//   // turn user input into markdown text
+//   const rawMarkup = { __html: marked(props.markdown, { sanitize: true }) };
+//
+//   // display markdown
+//   return (
+//     <div>
+//       <div
+//         className="output"
+//         dangerouslySetInnerHTML={rawMarkup}
+//       ></div>
+//     </div>
+//   )
+// }
+
+// main application
+class Application extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      markdown: ""
+    }
+    this.saveInput = this.saveInput.bind(this);
+  }
+
+  // once component mounts initialize state variables
+  // componentDidMount() {
+  //   this.setState({ markdown: });
+  // }
+
+  saveInput(input) {
+    this.setState({markdown: input});
+  }
+
+  render() {
+    return (
+      <div>
+        <MarkdownInput
+          onInputChange={this.saveInput}
+        />
+        {this.state.markdown}
+      </div>
+    );
+  }
+}
+
+
+ReactDOM.render(<Application/>, document.querySelector(".Application"));

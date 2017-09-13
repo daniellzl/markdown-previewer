@@ -1,16 +1,16 @@
-#App {
-    padding: 1% 15%;
-}
-
-.output {
-    width: 49%;
-    float: right;
+.Application {
+  padding: 1% 15%;
 }
 
 textarea {
-    float: left;
-    height: 100%;
-    resize: vertical;
-    width: 49%;
-    clear: right;
+  clear: right;
+  float: left;
+  height: 100%;
+  resize: vertical;
+  width: 49%;
+}
+
+.output {
+  float: right;
+  width: 49%;
 }
