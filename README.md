@@ -2,7 +2,7 @@
 
 Type in markdown into a text field and preview the output immediately.
 
-[Live Application](markdown-previewer-dlzl.surge.sh)
+[Live Application](https://markdown-previewer-dlzl.surge.sh)
 
 ### Project Goals
 
