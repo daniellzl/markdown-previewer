@@ -1,8 +1,8 @@
-.Application {
+#markdown-previewer {
   padding: 1% 15%;
 }
 
-textarea {
+.markdown-input textarea {
   clear: right;
   float: left;
   height: 100%;
@@ -10,7 +10,7 @@ textarea {
   width: 49%;
 }
 
-.output {
+.markdown-output {
   float: right;
   width: 49%;
 }
